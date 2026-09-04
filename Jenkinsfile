@@ -1,6 +1,11 @@
 pipeline {
     agent any
     
+    environment {
+        // Full path to your Python executable
+        PYTHON_EXE = 'C:\\Users\\neera\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
+    }
+    
     stages {
         stage('Checkout Code') {
             steps {
@@ -12,21 +17,21 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing Python dependencies...'
-                bat 'python -m pip install -r requirements.txt'
+                bat '"%PYTHON_EXE%" -m pip install -r requirements.txt'
             }
         }
         
         stage('Code Testing & Validation') {
             steps {
                 echo 'Running basic script validation...'
-                bat 'python -m py_compile main.py'
+                bat '"%PYTHON_EXE%" -m py_compile main.py'
             }
         }
         
         stage('Deploy Backend Service') {
             steps {
                 echo 'Executing Rate Limiter Script...'
-                bat 'python main.py'
+                bat '"%PYTHON_EXE%" main.py'
             }
         }
     }
