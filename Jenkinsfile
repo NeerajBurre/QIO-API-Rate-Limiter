@@ -6,15 +6,10 @@ pipeline {
     }
 
     stages {
-        stage('Checkout Code') {
+        stage('Clean & Checkout') {
             steps {
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: '*/main']],
-                    doGenerateSubmoduleConfigurations: false,
-                    extensions: [],
-                    userRemoteConfigs: [[url: 'https://github.com/NeerajBurre/QIO-API-Rate-Limiter.git']]
-                ])
+                cleanWs()
+                checkout scm
             }
         }
 
