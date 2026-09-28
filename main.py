@@ -1,7 +1,7 @@
 # Demo update: Verified QIO rate limiter logic for Jenkins CI/CD pipeline
 # Rate limiter presentation update
 # # CI/CD Demo Check: Verifying automated changelog generation
-#DEVOPS
+#DevOps
 #Creating a Task
 from fastapi import FastAPI, Request, HTTPException
 import redis
