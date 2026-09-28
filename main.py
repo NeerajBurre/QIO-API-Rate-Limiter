@@ -81,7 +81,7 @@ def optimize_limit():
 
 
 # -----------------------------
-# RATE LIMIT CHECK
+# TO CHECK RATE LIMIT
 # -----------------------------
 def is_allowed(ip):
     key = f"rate:{ip}"
